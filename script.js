@@ -16,12 +16,9 @@ function draw() {
 		head.width = w;
 		head.height = h;
 
-		context.fillStyle = "#00FFFF";
+		context.fillStyle = "#000";
 		context.fillRect(0, 0, window.innerWidth, window.innerHeight);
-
-		strokeCircle(0.5, 0.5, 100);
-		context.fillStyle = circleRainbowColor(0.5, 0.5, 0.5, 0.5, 50);
-		fillCircle(0.5, 0.5, 50);
+		magic(0.5, 0.5, "黑より黑く 闇より暗き漆黑に 我が深紅の混淆を望みたもう 覺醒のとき來たれり 無謬の境界に落ちし理 無行の歪みとなりて 現出せよ！ Explosion!", "#F00", 15, 20);
 	}
 }
 
@@ -57,4 +54,22 @@ function circleRainbowColor(x1p, y1p, x2p, y2p, r) {
 	color.addColorStop(0.833, "indigo");
 	color.addColorStop(1, "purple");
 	return(color)
+}
+
+function magic(xp, yp, text, color, size, fontSize) {
+	let base = fontSize * size;
+	context.strokeStyle = color;
+	strokeCircle(xp, yp, base - fontSize * 0.3);
+	strokeCircle(xp, yp, base + fontSize);
+
+	context.save();
+	context.fillStyle = color;
+	context.font = "bold " + fontSize + "px Arial";
+
+	context.translate(getW(xp), getH(yp));
+	for(let i = 0; i < text.length; i++) {
+		context.fillText(text[i], 0, -base);
+		context.rotate(2 * Math.PI / (text.length + 1));
+	}
+	context.restore();
 }
