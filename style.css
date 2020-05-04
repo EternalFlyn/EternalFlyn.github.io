@@ -1,3 +1,105 @@
 body{
   margin: 0;
 }
+
+#header {
+	z-index: 9;
+	width: 100%;
+	height: 7vh;
+	position: fixed;
+	background-color: #3C9;
+}
+
+#title {
+	position: absolute;
+	top: 1vh;
+	left: 8vh;
+	color: white;
+	font-size: 32px;
+	font-family: DFKai-sb;
+}
+
+#menu {
+	z-index: 10;
+	width: 20vw;
+	height: 100vh;
+	position: fixed;
+	left: 0vw;
+}
+
+#menuIcon {
+	width: 6.5vh;
+	height: 6.5vh;
+	position: relative;
+	top: 2px;
+	left: 0.5vw;
+}
+
+#menuContent {
+	overflow: auto;
+	z-index: 8;
+	display: none;
+	height: 93vh;
+	position: relative;
+	background-color: white;
+}
+
+#menuContent::-webkit-scrollbar {
+    display: none;
+}
+
+.menuButton {
+	width: 17vw;
+	height: auto;
+	border: white 1vw solid;
+	position: relative;
+	top: 1vh;
+	left: 0.5vw;
+	background-color: #3C9;
+}
+
+.menuTitle {
+	width: 16.5vw;
+	height: 40px;
+	padding-top: 5px;
+	padding-left: 0.5vw;
+	font-size: 28px;
+	font-family: DFKai-sb;
+	color: white;
+	background-color: #399;
+}
+
+.menuButton ul {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 24px;
+	font-family: DFKai-sb;
+	color: white;
+	background-color: #3C9;
+}
+
+.menuButton li {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.menuButton li:hover {
+	color: gray;
+}
+
+.content {
+	width: 100%;
+	height: 200vh;
+	position: absolute;
+	top: 5vh;
+	background-color: #BBB;
+}
+
+@keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}

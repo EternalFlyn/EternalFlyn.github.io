@@ -2,15 +2,18 @@ var w, h;
 var context;
 
 function load() {
-	window.onresize = function() {draw()}
+	window.onresize = function() {
+		draw();
+	}
 	draw();
 }
 
 function draw() {
-	w = window.innerWidth;
-	h = window.innerHeight;
-	var head = document.getElementById('header');
-	if(head.getContext) {
+	let div = document.getElementsByClassName("content")[0];
+	w = div.clientWidth;
+	h = div.clientHeight;
+	var head = document.getElementById('magic');
+	if(head) {
 		context = head.getContext("2d");
 
 		head.width = w;
@@ -19,6 +22,7 @@ function draw() {
 		context.fillStyle = "#000";
 		context.fillRect(0, 0, window.innerWidth, window.innerHeight);
 		magic(0.5, 0.5, "黑より黑く 闇より暗き漆黑に 我が深紅の混淆を望みたもう 覺醒のとき來たれり 無謬の境界に落ちし理 無行の歪みとなりて 現出せよ！ Explosion!", "#F00", 15, 20);
+		magic(0.5, 0.5, "test", "#0F0", 2, 10);
 	}
 }
 
@@ -58,18 +62,18 @@ function circleRainbowColor(x1p, y1p, x2p, y2p, r) {
 
 function magic(xp, yp, text, color, size, fontSize) {
 	let base = fontSize * size;
+	context.save();
 	context.strokeStyle = color;
 	strokeCircle(xp, yp, base - fontSize * 0.3);
 	strokeCircle(xp, yp, base + fontSize);
 
-	context.save();
 	context.fillStyle = color;
 	context.font = "bold " + fontSize + "px Arial";
 
 	context.translate(getW(xp), getH(yp));
 	for(let i = 0; i < text.length; i++) {
-		context.fillText(text[i], 0, -base);
-		context.rotate(2 * Math.PI / (text.length + 1));
+		context.fillText(text[i], -size, -base);
+		context.rotate(2 * Math.PI / text.length);
 	}
 	context.restore();
 }
