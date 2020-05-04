@@ -1,3 +1,15 @@
+$.ajax({
+	type: "GET",
+	url: "https://eternalflyn.github.io/data.json",
+	dataType: "json",
+	success: function(data) {
+		console.log(data);
+	},
+	fail: function() {
+		console.log("GG")
+	}
+});
+
 $(document).ready(function(){
 	$(".menuButton ul").hide();
 	$("#menuIcon").click(function() {
@@ -27,12 +39,3 @@ function jump(title, id) {
 	}
 	console.log(title);
 }
-
-$.ajax({
-	type: "GET",
-	url: "./test.json",
-	dataType: "json",
-	success: function(data) {
-		console.log(data);
-	}
-});
