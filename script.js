@@ -21,17 +21,6 @@ $(document).ready(function(){
 // 	})
 // })
 
-function jump(title, id, link) {
-	if(title == $("#title").text()) {
-		let pos = $("#" + id).offset().top - $("#header").height();
-		$("html,body").animate({scrollTop:pos}, 800);
-	}
-	else {
-		$(location).attr("href", link);
-	}
-	console.log(title);
-}
-
 function addButton(menu) {
 	$.each(menu, function(i, n) {
 		let title = n["title"];

@@ -10,8 +10,8 @@
 		<script>
 			function jump(title, id, link) {
 				if(title == $("#title").text()) {
-					let pos = $("#" + id).offset().top - $("#header").height();
-					$("html,body").animate({scrollTop:pos}, 800);
+					$(".content").hide();
+					$("#" + id).show();
 				}
 				else {
 					$(location).attr("href", link);
@@ -21,21 +21,27 @@
 	</head>
 	<body>
 		<div id = "header">
-			<div id = "title">首頁</div>
+			<div id = "title">會議記錄</div>
 		</div>
 		<div id = "menu">
 			<img id = "menuIcon" src = "./icon_navigation_bar.png">
 			<div id = "menuContent"></div>
 		</div>
 		<div id = "background">
-			<div class = "content" id = "背景">
+			<div class = "content" id = "第一次會議記錄">第一次會議紀錄
 			</div>
-			<div class = "content" id = "動機">
+			<div class = "content" id = "第二次會議記錄">第二次會議紀錄
 			</div>
-			<div class = "content" id = "目的">
+			<div class = "content" id = "第三次會議記錄">第三次會議紀錄
 			</div>
-			<div class = "content" id = "參考資料">
+			<div class = "content" id = "第四次會議記錄">第四次會議紀錄
+			</div>
+			<div class = "content" id = "第五次會議記錄">第五次會議紀錄
 			</div>
 		</div>
 	</body>
+	<script>
+		$(".content").hide();
+		jump("會議記錄", "第一次會議記錄", "");
+	</script>
 </html>

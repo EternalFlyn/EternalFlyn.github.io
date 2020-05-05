@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  background-color: #085;
 }
 
 #header {
@@ -23,7 +24,6 @@ body{
 	width: 100%;
 	position: absolute;
 	top: 7vh;
-	background-color: #085;
 }
 
 .content {
